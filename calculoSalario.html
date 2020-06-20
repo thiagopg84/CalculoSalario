@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Aumento</title>
+</head>
+<body>
+    <script>
+        (function() {
+            let planoColaborador;
+                let salario;
+
+            function getSalario() {
+                salario = +window.prompt('Digite o seu salário');
+                if (salario == null || salario == "" || isNaN(salario) == true) {
+                    window.alert('Dado inválido!');
+                    getSalario();
+                }
+            }
+
+            function getPlanoColaborador() {
+                planoColaborador = window.prompt('Informe o seu plano de trabalho (A, B ou C): ').toUpperCase();
+                if (planoColaborador !== 'A' && planoColaborador !== 'B' && planoColaborador !== 'C') {
+                    window.alert('Plano não existente!');
+                    getPlanoColaborador();
+                } else {
+                    switch(planoColaborador) {
+                        case 'A':
+                            salario = salario + (salario * .10);
+                            document.write('Seu novo salário é: R$' + salario);
+                            break;
+                        case 'B':
+                            salario = salario + (salario * .15);
+                            document.write('Seu novo salário é: R$' + salario);
+                            break;
+                        case 'C':
+                        salario = salario + (salario * .20);
+                        document.write('Seu novo salário é: R$' + salario);
+                        break;
+                    }
+                }
+            }
+            getSalario();
+            getPlanoColaborador();
+        })();
+    </script>
+</body>
+</html>
